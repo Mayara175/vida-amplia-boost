@@ -4,7 +4,6 @@ import {
   Monitor,
   Clock,
   MapPin,
-  CreditCard,
   Users,
   Shield,
   Syringe,
@@ -126,7 +125,7 @@ const DiferenciaisPage = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-28 pb-20 overflow-hidden">
+      <section className="relative pt-24 md:pt-28 pb-12 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
         <div className="container mx-auto relative z-10 text-center max-w-3xl">
           <motion.div
@@ -134,13 +133,13 @@ const DiferenciaisPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-primary font-medium text-sm tracking-widest uppercase">
+            <span className="text-primary font-medium text-xs md:text-sm tracking-widest uppercase">
               Por que a Vida Ampla?
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mt-3 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mt-2 md:mt-3 leading-tight">
               Nossos <span className="text-gradient">Diferenciais</span>
             </h1>
-            <p className="text-muted-foreground text-lg mt-6 leading-relaxed">
+            <p className="text-muted-foreground text-base md:text-lg mt-4 md:mt-6 leading-relaxed">
               Conheça o que nos torna únicos no cuidado com a sua saúde. Priorizamos conforto,
               conveniência e excelência no atendimento.
             </p>
@@ -151,34 +150,34 @@ const DiferenciaisPage = () => {
       {/* Diferenciais Grid */}
       <section className="section-padding bg-secondary">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
             {diferenciais.map((d, i) => (
               <motion.div
                 key={d.title}
                 {...fadeUp}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-card rounded-3xl p-8 md:p-10 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-500"
+                className="bg-card rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-500"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                  <d.icon className="w-7 h-7 text-primary" />
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-4 md:mb-6">
+                  <d.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                 </div>
-                <span className="text-primary text-sm font-medium tracking-wider uppercase">
+                <span className="text-primary text-xs md:text-sm font-medium tracking-wider uppercase">
                   {d.subtitle}
                 </span>
-                <h3 className="text-2xl font-display font-bold text-foreground mt-1 mb-4">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mt-1 mb-3 md:mb-4">
                   {d.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">{d.description}</p>
+                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{d.description}</p>
               </motion.div>
             ))}
           </div>
 
-          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.4 }} className="text-center mt-12">
+          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.4 }} className="text-center mt-8 md:mt-12">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors text-sm md:text-base"
             >
               Converse com nossa equipe e veja como podemos te ajudar →
             </a>
@@ -189,34 +188,34 @@ const DiferenciaisPage = () => {
       {/* Clinic Gallery */}
       <section className="section-padding bg-background">
         <div className="container mx-auto max-w-5xl">
-          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-foreground">
               Venha conhecer a <span className="text-gradient">Ampla</span>
             </h2>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             {[clinic1, clinic2, clinic3].map((img, i) => (
               <motion.div
                 key={i}
                 {...fadeUp}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="rounded-2xl overflow-hidden shadow-lg group"
+                className="rounded-xl md:rounded-2xl overflow-hidden shadow-lg group"
               >
                 <img
                   src={img}
                   alt={`Consultório Vida Ampla ${i + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-48 sm:h-56 md:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
               </motion.div>
             ))}
           </div>
-          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mt-8">
+          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mt-6 md:mt-8">
             <a
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold hover:bg-accent transition-all shadow-lg shadow-primary/25"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 md:px-6 md:py-3 rounded-full font-semibold hover:bg-accent transition-all shadow-lg shadow-primary/25 text-sm md:text-base"
             >
               <MapPin className="w-4 h-4" />
               Ver no Google Maps
@@ -228,16 +227,16 @@ const DiferenciaisPage = () => {
       {/* Nosso Conceito */}
       <section className="section-padding bg-secondary">
         <div className="container mx-auto max-w-5xl">
-          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-16">
-            <span className="text-primary font-medium text-sm tracking-widest uppercase">
+          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-10 md:mb-16">
+            <span className="text-primary font-medium text-xs md:text-sm tracking-widest uppercase">
               Nosso Conceito
             </span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-2 md:mt-3 text-foreground">
               Os pilares da <span className="text-gradient">Vida Ampla</span>
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8">
             {conceito.map((c, i) => (
               <motion.div
                 key={c.title}
@@ -245,11 +244,11 @@ const DiferenciaisPage = () => {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="text-center group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors">
-                  <c.icon className="w-8 h-8 text-primary" />
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-3 md:mb-5 group-hover:bg-primary/20 transition-colors">
+                  <c.icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-display font-bold text-foreground mb-3">{c.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{c.description}</p>
+                <h3 className="text-base md:text-lg font-display font-bold text-foreground mb-2 md:mb-3">{c.title}</h3>
+                <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">{c.description}</p>
               </motion.div>
             ))}
           </div>
@@ -259,32 +258,32 @@ const DiferenciaisPage = () => {
       {/* FAQ */}
       <section className="section-padding bg-background">
         <div className="container mx-auto max-w-3xl">
-          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-16">
-            <span className="text-primary font-medium text-sm tracking-widest uppercase">
+          <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-10 md:mb-16">
+            <span className="text-primary font-medium text-xs md:text-sm tracking-widest uppercase">
               FAQ
             </span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mt-3 text-foreground">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-2 md:mt-3 text-foreground">
               Perguntas <span className="text-gradient">Frequentes</span>
             </h2>
           </motion.div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             {faqs.map((faq, i) => (
               <motion.details
                 key={faq.question}
                 {...fadeUp}
                 transition={{ duration: 0.6, delay: i * 0.08 }}
-                className="group bg-card rounded-2xl border border-border hover:border-primary/30 transition-all"
+                className="group bg-card rounded-xl md:rounded-2xl border border-border hover:border-primary/30 transition-all"
               >
-                <summary className="flex items-center gap-4 p-6 cursor-pointer list-none">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-open:bg-primary/20 transition-colors">
-                    <HelpCircle className="w-5 h-5 text-primary" />
+                <summary className="flex items-center gap-3 md:gap-4 p-4 md:p-6 cursor-pointer list-none">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-open:bg-primary/20 transition-colors">
+                    <HelpCircle className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                   </div>
-                  <span className="text-foreground font-semibold flex-1">{faq.question}</span>
-                  <span className="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                  <span className="text-foreground font-semibold flex-1 text-sm md:text-base">{faq.question}</span>
+                  <span className="text-primary text-lg md:text-xl group-open:rotate-45 transition-transform flex-shrink-0">+</span>
                 </summary>
-                <div className="px-6 pb-6 pl-20">
-                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                <div className="px-4 pb-4 pl-14 md:px-6 md:pb-6 md:pl-20">
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{faq.answer}</p>
                 </div>
               </motion.details>
             ))}
@@ -296,29 +295,29 @@ const DiferenciaisPage = () => {
       <section className="section-padding bg-primary/5">
         <div className="container mx-auto text-center max-w-2xl">
           <motion.div {...fadeUp} transition={{ duration: 0.6 }}>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-foreground mb-3 md:mb-4">
               Pronto para cuidar da sua saúde?
             </h2>
-            <p className="text-muted-foreground text-lg mb-8">
+            <p className="text-muted-foreground text-base md:text-lg mb-6 md:mb-8">
               Entre em contato e agende sua consulta. Nossa equipe está pronta para receber você.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-accent transition-all shadow-lg shadow-primary/25"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 md:px-8 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-accent transition-all shadow-lg shadow-primary/25"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4 md:w-5 md:h-5" />
                 Agendar Consulta
               </a>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-lg font-medium border border-border hover:border-primary/40 hover:bg-primary/5 transition-all text-foreground"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full text-base md:text-lg font-medium border border-border hover:border-primary/40 hover:bg-primary/5 transition-all text-foreground"
               >
-                <MapPin className="w-5 h-5" />
+                <MapPin className="w-4 h-4 md:w-5 md:h-5" />
                 Localização
               </a>
             </div>
