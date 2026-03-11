@@ -37,26 +37,26 @@ const DoctorsSection = () => {
   return (
     <section id="quem-somos" className="section-padding bg-background">
       <div className="container mx-auto">
-        <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-16">
-          <span className="text-primary font-medium text-sm tracking-widest uppercase">
+        <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="text-center mb-10 md:mb-16">
+          <span className="text-primary font-medium text-xs md:text-sm tracking-widest uppercase">
             Quem somos
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mt-2 md:mt-3 text-foreground">
             Profissionais dedicados ao seu{" "}
             <span className="text-gradient">bem-estar</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {doctors.map((doc, i) => (
             <motion.div
               key={doc.name}
               {...fadeUp}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group relative bg-card rounded-3xl overflow-hidden border border-border hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500"
+              className="group relative bg-card rounded-2xl md:rounded-3xl overflow-hidden border border-border hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500"
             >
               {/* Doctor Photo */}
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-52 sm:h-60 md:h-72 overflow-hidden">
                 <img
                   src={doc.image}
                   alt={doc.name}
@@ -65,31 +65,31 @@ const DoctorsSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
               </div>
 
-              <div className="p-8 -mt-12 relative z-10">
-                <span className="text-primary text-sm font-medium tracking-wider uppercase">
+              <div className="p-5 md:p-8 -mt-10 md:-mt-12 relative z-10">
+                <span className="text-primary text-xs md:text-sm font-medium tracking-wider uppercase">
                   {doc.subtitle}
                 </span>
-                <h3 className="text-2xl font-display font-bold text-foreground mt-1 mb-3">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-foreground mt-1 mb-2 md:mb-3">
                   {doc.name}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-3 md:mb-4">
                   {doc.description}
                 </p>
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
                   {doc.specialties.map((s) => (
                     <li
                       key={s}
-                      className="text-foreground/80 flex items-center gap-2 text-sm"
+                      className="text-foreground/80 flex items-center gap-2 text-xs md:text-sm"
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
                       {s}
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-wrap items-center gap-3 md:gap-4">
                   <Link
                     to={doc.link}
-                    className="text-primary font-semibold hover:text-accent transition-colors flex items-center gap-1"
+                    className="text-primary font-semibold hover:text-accent transition-colors flex items-center gap-1 text-sm"
                   >
                     Saiba mais <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -97,7 +97,7 @@ const DoctorsSection = () => {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    className="text-muted-foreground hover:text-primary transition-colors text-xs md:text-sm"
                   >
                     Agendar consulta
                   </a>

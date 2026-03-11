@@ -29,6 +29,16 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
   const isActive = (href: string) => {
     if (href === "/") return location.pathname === "/";
     return location.pathname.startsWith(href);
@@ -68,10 +78,10 @@ const Navbar = () => {
         scrolled ? "glass shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-3">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logoAmpla} alt="Vida Ampla" className="h-10 w-auto" />
-          <span className="text-xl font-display font-bold text-gradient">Vida Ampla</span>
+      <div className="container mx-auto flex items-center justify-between py-2.5 md:py-3">
+        <Link to="/" className="flex items-center gap-2 md:gap-3">
+          <img src={logoAmpla} alt="Vida Ampla" className="h-8 md:h-10 w-auto" />
+          <span className="text-lg md:text-xl font-display font-bold text-gradient">Vida Ampla</span>
         </Link>
 
         {/* Desktop */}
@@ -109,20 +119,20 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass border-t border-border"
+            className="lg:hidden glass border-t border-border max-h-[calc(100svh-60px)] overflow-y-auto"
           >
-            <div className="container mx-auto py-6 flex flex-col gap-4">
+            <div className="container mx-auto py-5 md:py-6 flex flex-col gap-3 md:gap-4">
               {navLinks.map((link) =>
                 renderLink(
                   link,
-                  "text-foreground/80 hover:text-primary transition-colors py-2"
+                  "text-foreground/80 hover:text-primary transition-colors py-2 text-base"
                 )
               )}
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full font-semibold"
+                className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full font-semibold mt-2"
               >
                 <Phone className="w-4 h-4" />
                 Agendar Consulta
